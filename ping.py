@@ -7,10 +7,10 @@ from time import sleep
 
 @borg.on(admin_cmd("ping"))
 async def _(event):
-	"""модуль написан украинцем/Слава Україні!"""
     if event.fwd_from:
         return
     start = datetime.now()
+    """модуль написан украинцем/Слава Україні!"""
     await event.edit("Ждём ответа от сервера...")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
