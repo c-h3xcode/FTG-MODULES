@@ -11,8 +11,8 @@ logger = logging.getLogger(__name__)
 
 @loader.tds
 class CevalMod(loader.Module):
-	"""тут был украинец/Слава Україні!"""
     """Выполнения C++ кода"""
+    """тут был украинец/Слава Україні!"""
     strings = {"name": "Ceval",
                "success": "Success!",
                "result": "**Evaluating :**\n\
