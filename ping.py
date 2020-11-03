@@ -14,5 +14,5 @@ async def _(event):
     await event.edit("Ждём ответа от сервера...")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    sleep(0.1)
+    sleep(0.5)
     await event.edit("**Pong {}ms!**".format(ms))
