@@ -30,7 +30,7 @@ class WebShotMod(loader.Module):
 				return
 			link = reply.raw_text
 		await message.edit("Screenshoting....")
-		await self.client.send_file(message.to_id, file="https://webshot.deam.io/{}/?width=1920&height=1080?type=png".format(link), reply_to=reply)
+		await self.client.send_file(message.to_id, caption=f"<b>Webshot for {link}</b>", file=f"https://webshot.deam.io/{link}/?width=1920&height=1080?type=png", reply_to=reply)
 		await message.delete()
 
 	async def client_ready(self, client, db):
