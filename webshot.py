@@ -14,17 +14,10 @@ def register(cb):
 @loader.tds
 class WebShotMod(loader.Module):
 	"""модуль написан украинцом/Слава Україні!"""
-	strings = {
-		"name": "WebShot"
-	}
-
-	async def client_ready(self, client, db):
-		self.client = client
+	strings = {"name": "WebShot"}
 		
 	def __init__(self):
 		self.name = self.strings['name']
-		
-		
 	
 	@loader.sudo
 	async def webshotcmd(self, message):
@@ -37,13 +30,8 @@ class WebShotMod(loader.Module):
 				return
 			link = reply.raw_text
 		await message.edit("Screenshoting....")
-		url = "https://webshot.deam.io/{}/?width=1920&height=1080?type=png"
-		file = get(url.format(link))
-		if not file.ok:
-			await message.edit("Something went wrong...")
-			return
-		file = io.BytesIO(file.content)
-		file.name = "webshoting.png"
-		file.seek(0)
-		await message.client.send_file(message.to_id, file, reply_to=reply)
+		await self.client.send_file(message.to_id, file="https://webshot.deam.io/{}/?width=1920&height=1080?type=png".format(link), reply_to=reply)
 		await message.delete()
+
+	async def client_ready(self, client, db):
+		self.client = client
